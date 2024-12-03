@@ -12,3 +12,7 @@ export const env = createEnv({
     DATABASE_URL: process.env.DATABASE_URL,
   },
 });
+
+// default env values
+//NODE_ENV='development'
+//DATABASE_URL=postgresql://postgres:example@localhost:5432/postgres
