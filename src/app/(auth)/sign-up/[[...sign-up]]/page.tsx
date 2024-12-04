@@ -25,10 +25,10 @@ const SignUpPage = () => {
   const form = useForm<z.infer<typeof SignUpSchema>>({
     resolver: zodResolver(SignUpSchema),
     defaultValues: {
-      name: 'stef',
-      email: 'stef@gmail.com',
-      password: 'Stef123!',
-      checkPassword: 'Stef123!',
+      name: '',
+      email: '',
+      password: '',
+      checkPassword: '',
     },
   });
 

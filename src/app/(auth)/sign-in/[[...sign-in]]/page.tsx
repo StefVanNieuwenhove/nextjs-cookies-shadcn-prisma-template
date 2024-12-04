@@ -26,8 +26,8 @@ const SignInPage = () => {
   const form = useForm<z.infer<typeof SignInSchema>>({
     resolver: zodResolver(SignInSchema),
     defaultValues: {
-      email: 'stef@gmail.com',
-      password: 'Stef123!',
+      email: '',
+      password: '',
     },
   });
 
