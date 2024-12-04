@@ -1,0 +1,12 @@
+export { default as H1 } from './H1';
+export { default as H2 } from './H2';
+export { default as H3 } from './H3';
+export { default as H4 } from './H4';
+export { default as P } from './P';
+export { default as Small } from './Small';
+export { default as Muted } from './Muted';
+export { default as Lead } from './Lead';
+export { default as InlineCode } from './InlineCode';
+export { default as Blockquote } from './Blockquote';
+export { default as ListTypo } from './ListTypo';
+export { default as Large } from './Large';
