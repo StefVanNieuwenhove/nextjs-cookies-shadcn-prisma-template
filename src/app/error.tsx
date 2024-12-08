@@ -13,6 +13,7 @@ export default function GlobalError({
       <body>
         <h2>Something went wrong!</h2>
         <button onClick={() => reset()}>Try again</button>
+        <pre>{error.digest}</pre>
       </body>
     </html>
   );

@@ -5,33 +5,32 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
 import { z } from 'zod';
-import { SignInSchema } from '@/lib/validation';
+import { ForgotPasswordSchema } from '@/lib/validation';
 import { Input } from '@/components/ui/input';
-import { H2, Small } from '@/components/typography';
+import { H2 } from '@/components/typography';
 import { Button } from '@/components/ui/button';
-import Link from 'next/link';
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
 import { login } from '@/data-acces/auth';
 
-const SignInPage = () => {
+const ForgotPasswordPage = () => {
   const router = useRouter();
-  const form = useForm<z.infer<typeof SignInSchema>>({
-    resolver: zodResolver(SignInSchema),
+  const form = useForm<z.infer<typeof ForgotPasswordSchema>>({
+    resolver: zodResolver(ForgotPasswordSchema),
     defaultValues: {
       email: '',
       password: '',
+      checkPassword: '',
     },
   });
 
-  const handleSubmit = async (data: z.infer<typeof SignInSchema>) => {
+  const handleSubmit = async (data: z.infer<typeof ForgotPasswordSchema>) => {
     const response = await login({
       email: data.email,
       password: data.password,
@@ -52,7 +51,7 @@ const SignInPage = () => {
           onSubmit={form.handleSubmit(handleSubmit)}
           className='w-full md:max-w-prose border border-primary rounded-md px-10 py-5 space-y-5 h-fit'>
           <div className='w-full flex flex-col items-center justify-center space-y-2 border-b border-primary'>
-            <H2>Sign In</H2>
+            <H2>Forgot password?</H2>
           </div>
           <FormField
             control={form.control}
@@ -88,11 +87,25 @@ const SignInPage = () => {
                     {...field}
                   />
                 </FormControl>
-                <FormDescription className='flex justify-end'>
-                  <span className='text-primary hover:underline hover:cursor-pointer'>
-                    <Link href={'/forgot-password'}>Forgot password?</Link>
-                  </span>
-                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name='checkPassword'
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>
+                  Confirm Password <span className='text-red-500'>*</span>
+                </FormLabel>
+                <FormControl>
+                  <Input
+                    type='password'
+                    placeholder='**************'
+                    {...field}
+                  />
+                </FormControl>
                 <FormMessage />
               </FormItem>
             )}
@@ -113,16 +126,10 @@ const SignInPage = () => {
               Submit
             </Button>
           </div>
-          <Small>
-            Don&apos;t have an account?{' '}
-            <span className='text-primary hover:underline hover:cursor-pointer'>
-              <Link href={'/sign-up'}>Sign up</Link>
-            </span>
-          </Small>
         </form>
       </Form>
     </section>
   );
 };
 
-export default SignInPage;
+export default ForgotPasswordPage;

@@ -4,7 +4,7 @@ import React from 'react';
 import { Button } from '../ui/button';
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
-import { logout } from '@/data-acces/user';
+import { logout } from '@/data-acces/auth';
 
 const SignOutButton = () => {
   const router = useRouter();

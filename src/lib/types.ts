@@ -5,6 +5,7 @@ export type FormResponse = {
   type: 'success' | 'error';
 };
 
+export type CreateUserProps = Omit<User, 'id' | 'createdAt' | 'updatedAt'>;
 export type UserSession = Omit<User, 'password'>;
 
 export type SessionPayload = {
@@ -17,6 +18,11 @@ export type VerifySession = {
 };
 
 export type LoginProps = {
+  email: string;
+  password: string;
+};
+
+export type ForgotPasswordProps = {
   email: string;
   password: string;
 };

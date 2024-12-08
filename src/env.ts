@@ -7,6 +7,7 @@ export const env = createEnv({
     NODE_ENV: z.enum(['development', 'test', 'production']),
     SESSION_SECRET: z.string().min(1),
     TOKEN_NAME: z.string().min(1),
+    SALT_ROUNDS: z.string().min(1),
   },
   client: {},
   runtimeEnv: {
@@ -14,6 +15,7 @@ export const env = createEnv({
     DATABASE_URL: process.env.DATABASE_URL,
     SESSION_SECRET: process.env.SESSION_SECRET,
     TOKEN_NAME: process.env.TOKEN_NAME,
+    SALT_ROUNDS: process.env.SALT_ROUNDS,
   },
 });
 

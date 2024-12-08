@@ -18,7 +18,7 @@ import { H2, Small } from '@/components/typography';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
-import { register } from '@/data-acces/user';
+import { register } from '@/data-acces/auth';
 
 const SignUpPage = () => {
   const router = useRouter();
